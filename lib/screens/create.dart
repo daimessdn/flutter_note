@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class CreateNote extends StatefulWidget {
@@ -10,6 +8,10 @@ class CreateNote extends StatefulWidget {
 }
 
 class _CreateNoteState extends State<CreateNote> {
+  // inisiasi state
+  final titleController = TextEditingController();
+  final bodyController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,12 +25,14 @@ class _CreateNoteState extends State<CreateNote> {
             child: Column(
               children: [
                 TextFormField(
+                  controller: titleController,
                   style: const TextStyle(fontSize: 28),
                   decoration: const InputDecoration(
                       border: InputBorder.none, hintText: "Title"),
                 ),
                 const SizedBox(height: 10),
                 TextFormField(
+                  controller: bodyController, // masang state/controller
                   style: const TextStyle(fontSize: 18),
                   decoration: const InputDecoration(
                       border: InputBorder.none, hintText: "Yout note here..."),
