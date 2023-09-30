@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/models/note_model.dart';
 
 class CreateNote extends StatefulWidget {
-  const CreateNote({Key? key}) : super(key: key);
+  const CreateNote({super.key, required this.onNewNoteCreated});
+
+  final Function(Note) onNewNoteCreated;
 
   @override
   State<CreateNote> createState() => _CreateNoteState();

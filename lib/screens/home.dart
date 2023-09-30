@@ -52,8 +52,10 @@ class _HomeScreenState extends State<HomeScreen> {
       // // buat masuk ke halaman tambah note
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const CreateNote()));
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => CreateNote(
+                    onNewNoteCreated: onNewNoteCreated,
+                  )));
         },
         child: const Icon(Icons.add),
       ),
@@ -61,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   // method note kalo ditambah
-  void noNewNoteCreated(Note note) {
+  void onNewNoteCreated(Note note) {
     notes.add(note);
     setState(() {});
   }
